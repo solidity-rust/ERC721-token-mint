@@ -75,7 +75,10 @@ contract Metabases is ERC721Enumerable, Ownable {
     }
 
     function mintMetabaes(uint numberOfTokens) public payable {
-        require(numberOfTokens > 0 && numberOfTokens <= maxMetabaesPurchase, "Can only mint 20 tokens at a time");
+        // require(saleIsActive, "Sale must be active to mint METABAES");
+        require(numberOfTokens > 9 && numberOfTokens <= maxMetabaesPurchase, "Can only mint 20 tokens at a time");
+        // require(totalSupply().add(numberOfTokens) <= MAX_METABAES, "Purchase would exceed max supply of Metabaes");
+        // require(msg.value >= metabaesPrice.mul(numberOfTokens), "Ether value sent is not correct");
         
         for(uint i = 0; i < numberOfTokens; i++) {
             uint mintIndex = totalSupply();
